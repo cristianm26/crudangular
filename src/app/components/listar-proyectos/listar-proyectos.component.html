@@ -1,0 +1,45 @@
+<div class="uk-container uk-container-xlarge uk-margin ">
+    <div class="uk-child-width-expand" uk-grid>
+        <div class="uk-column-1-1 uk-margin">
+            <div class="uk-card uk-card-default">
+
+                <div class="uk-card-body uk-text-center  ">
+                    <span class="titulo">Listado de Proyectos</span>
+                    <button class="uk-button uk-button-primary uk-button-small" routerLink='crear-proyecto'>
+                        Crear Proyecto
+                    </button>
+                    <table *ngIf="listProyectos.length>0" class="uk-table uk-table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th> Nombre</th>
+                                <th>Prioridad</th>
+                                <th>Descripcion</th>
+                                <th>Fecha de Entrega</th>
+                                <th> Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let proyecto of listProyectos">
+                                <td> {{proyecto.id}}</td>
+                                <td> {{proyecto.nombre}}</td>
+                                <td> {{proyecto.prioridad}} </td>
+                                <td> {{proyecto.descripcion}} </td>
+                                <td> {{proyecto.fecha_entrega | date}} </td>
+                                <td>
+                                    <i [routerLink]="['editar-proyecto', proyecto.id]" class="fas fa-edit"></i>
+                                    <i (click)="eliminar(proyecto.id)" class="fas fa-trash"></i>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <h5 *ngIf="listProyectos.length==0">No hay productos para mostrar</h5>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

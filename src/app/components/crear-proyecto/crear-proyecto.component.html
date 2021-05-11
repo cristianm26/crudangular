@@ -1,0 +1,62 @@
+<div class="uk-container uk-container-xlarge uk-margin">
+    <div class="uk-child-width-expand" uk-grid>
+        <div class="uk-column-1-1">
+            <div class="uk-card uk-card-default ">
+
+                <div class="uk-card-body   ">
+                    <span class="titulo uk-text-center"> {{titulo | uppercase}}</span>
+                    <form class="uk-form-stacked" [formGroup]="proyectoForm" (ngSubmit)="agregarProyecto()">
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Nombre</label>
+                            <div class="uk-form-controls">
+                                <input formControlName="nombre"  class="uk-input"  type="text" placeholder="Ingrese el Nombre">
+                                <div class="uk-text-danger	" *ngIf="proyectoForm.get('nombre').hasError('required') && proyectoForm.get('nombre').touched ">
+                                        <span>El nombre del proyecto <strong>es obligatorio</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <div class="uk-form-label">Prioridad</div>
+                            <div class="uk-form-controls">
+                                <label><input class="uk-radio" type="radio" formControlName="prioridad" value="1">Alta</label><br>
+                                <label><input class="uk-radio" type="radio" formControlName="prioridad"  value="2">Media</label><br>
+                                <label><input class="uk-radio" type="radio" formControlName="prioridad" value="3">Baja</label><br>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Descripcion</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input"  type="text" formControlName="descripcion" placeholder="Ingrese la descripcion del proyecto">
+                                <div class="uk-text-danger	" *ngIf="proyectoForm.get('descripcion').hasError('required') && proyectoForm.get('descripcion').touched ">
+                                    <span>La descripcion del proyecto <strong>es obligatorio</strong></span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Fecha de Entrega</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input"  type="date" formControlName="fecha_entrega" placeholder="Ingrese la fecha">
+                                <div class="uk-text-danger	" *ngIf="proyectoForm.get('fecha_entrega').hasError('required') && proyectoForm.get('fecha_entrega').touched ">
+                                    <span>La fecha de entrega del proyecto <strong>es obligatorio</strong></span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <button routerLink='/' class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom">Volver</button>
+
+                            <button  type="submit" [disabled]="proyectoForm.invalid"  class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Guardar</button>
+                        </div>
+
+                    
+                        
+                    
+                    </form>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

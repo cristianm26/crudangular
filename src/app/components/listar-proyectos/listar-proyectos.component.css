@@ -1,0 +1,12 @@
+.fas{
+    cursor: pointer;
+    margin-left: 7px;
+
+}
+
+.fa-edit{
+    color: cornflowerblue;
+}
+.fa-trash{
+    color: crimson;
+}
